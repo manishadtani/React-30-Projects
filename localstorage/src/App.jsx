@@ -1,22 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 
 function Navbar() {
-  const [Mode, setMode] = useState(localStorage.getItem("theme"));
+  const [Mode, setMode] = useState(localStorage.getItem("Mode"));
 
   const usereff = useRef(null)
 
   let modeHandler = () => {
       if(Mode == "light"){
-         localStorage.setItem("theme","dark")
+         localStorage.setItem("Mode","dark")
          setMode('dark')
-      }else if(Mode == "dark"){
-        localStorage.setItem("theme","light")
+      }else{
+        localStorage.setItem("Mode","light")
         setMode("light")
       }
   }
 
   useEffect(function(){
-         usereff.current.setAttribute('id',"theme")
+         usereff.current.setAttribute('id',Mode)
   },[Mode])
 
   return (
